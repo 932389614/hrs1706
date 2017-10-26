@@ -59,7 +59,7 @@ public class DeptServlet extends BaseServlet {
 			Dept dept=new Dept(Integer.valueOf(no),name,loction);
 			if(deptService.addDept(dept)) {
 				Map<Integer,Dept> map=(Map<Integer,Dept>)req.getServletContext().getAttribute("deptCache");
-				map.put(dept.getNo(), dept);
+				map.put(dept.getId(), dept);
 				req.getServletContext().setAttribute("deptCache", map);
 				System.out.println("map.size()"+map.size());
 			}

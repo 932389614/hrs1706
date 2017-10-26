@@ -16,34 +16,36 @@ public class Dept implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(name="dno")
-	private Integer no;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="did")
+	private Integer id;
 	@Column(name="dname")
 	private String name;
 	@Column(name="dloc")
 	private String location;
 
-	public Integer getNo() {
-		return no;
-	}
 	public String getName() {
 		return name;
 	}
 	public String getLocation() {
 		return location;
 	}
-	public void setNo(Integer no) {
-		this.no = no;
-	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public Dept(Integer no, String name, String location) {
 		super();
-		this.no = no;
+		this.id = no;
 		this.name = name;
 		this.location = location;
 	}

@@ -14,8 +14,9 @@ import javax.persistence.*;
 @Table(name="tb_emp")
 public class Emp implements Serializable {
 	@Id
-	@Column(name="eno")
-	private Integer no;		//±‡∫≈
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="eid")
+	private Integer id;		//±‡∫≈
 	@Column(name="ename")
 	private String name;	//–’√˚
 	@Column(name="esex")
@@ -40,9 +41,7 @@ public class Emp implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="dno")
 	private Dept dept;		//≤ø√≈	
-	public Integer getNo() {
-		return no;
-	}
+
 	public String getName() {
 		return name;
 	}
@@ -69,8 +68,12 @@ public class Emp implements Serializable {
 	public Dept getDept() {
 		return dept;
 	}
-	public void setNo(Integer no) {
-		this.no = no;
+
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -114,10 +117,10 @@ public class Emp implements Serializable {
 	public Emp() {
 		super();
 	}
-	public Emp(Integer no, String name, Boolean sex, String job, Emp mgr, Double salary, Date hirDate, Boolean status,
+	public Emp(Integer id, String name, Boolean sex, String job, Emp mgr, Double salary, Date hirDate, Boolean status,
 			String photo, String tel, Dept dept) {
 		super();
-		this.no = no;
+		this.id = id;
 		this.name = name;
 		this.sex = sex;
 		this.job = job;
@@ -131,7 +134,7 @@ public class Emp implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Emp [no=" + no + ", name=" + name + ", sex=" + sex + ", job=" + job + ", mgr=" + mgr + ", salary="
+		return "Emp [no=" + id + ", name=" + name + ", sex=" + sex + ", job=" + job + ", mgr=" + mgr + ", salary="
 				+ salary + ", hirDate=" + hirDate + ", status=" + status + ", photo=" + photo + ", tel=" + tel
 				+ ", dept=" + dept + "]";
 	}

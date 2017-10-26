@@ -52,7 +52,7 @@ public class EmpDto implements Serializable{
 		this.tel = tel;
 	}
 	public EmpDto(Emp emp) {
-		this.setNo(emp.getNo());
+		this.setNo(emp.getId());
 		this.setName(emp.getName());
 		this.setSex(emp.getSex()?"ÄÐ":"Å®");
 		this.setJob(emp.getJob());

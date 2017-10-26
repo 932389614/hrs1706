@@ -97,7 +97,7 @@ public class EmpServlet extends BaseServlet {
 		Integer deptno=Integer.valueOf(req.getParameter("deptno"));	
 		Integer pageNo=Integer.valueOf(req.getParameter("page"));	
 		Dept dept=(Dept)req.getSession().getAttribute("dept");
-		if(dept==null || deptno!=dept.getNo()) {
+		if(dept==null || deptno!=dept.getId()) {
 			dept=getDeptService().findDept(deptno);
 			req.getSession().setAttribute("dept", dept);
 		}
@@ -169,7 +169,7 @@ public class EmpServlet extends BaseServlet {
 		
 		
 		Emp emp=new Emp();
-		emp.setNo(no);
+		emp.setId(no);
 		emp.setName(name);
 		emp.setSex(sex);
 		emp.setJob(job);

@@ -13,6 +13,10 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="uid")
+	private Integer id;
+	
 	private String username;//ÓÃ»§Ãû
 	private String password;//ÃÜÂë
 	private String email;

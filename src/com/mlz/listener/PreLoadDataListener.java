@@ -27,7 +27,7 @@ public class PreLoadDataListener implements ServletContextListener {
 		List<Dept> deptList=deptService.listAllDepts();
 		Map<Integer,Dept> cacheMap=new HashMap<>();
 		for(Dept dept:deptList) {
-			cacheMap.put(dept.getNo(), dept);
+			cacheMap.put(dept.getId(), dept);
 		}
 		ServletContext servletContext=evt.getServletContext();
 		servletContext.setAttribute("deptCache", cacheMap);
